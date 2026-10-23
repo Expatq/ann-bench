@@ -13,6 +13,6 @@ add_compile_options(
   -Wextra
   -Wpedantic
   -fno-fast-math
-  -ffp-contract=of
+  -ffp-contract=off
 )
 add_link_options(-stdlib=libc++)

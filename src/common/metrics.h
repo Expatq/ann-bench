@@ -11,7 +11,7 @@ enum class MetricKind : uint8_t {
 };
 
 class IMetric {
-  public:
+public:
     virtual ~IMetric() = default;
 
     virtual MetricKind GetType() const = 0;
