@@ -1,0 +1,17 @@
+{
+  "build": {
+    "metric": "l2",
+    "seed": 42,
+    "threads": 22
+  },
+  "search": {
+    "neighbors_per_query": 10,
+    "threads": 1
+  },
+  "measurement": {
+    "query_threads": 8,
+    "warmup_queries_per_worker": 1000,
+    "repetitions": 3,
+    "seed": 42
+  }
+}

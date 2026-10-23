@@ -1,0 +1,10 @@
+{
+  "build": {
+    "index": "ivf",
+    "encoding": "sq8",
+    "nlist": 1024
+  },
+  "search": {
+    "nprobe": 32
+  }
+}
