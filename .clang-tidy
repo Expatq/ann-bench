@@ -1,0 +1,11 @@
+Checks: '-*,readability-identifier-naming,readability-braces-around-statements'
+CheckOptions:
+  readability-braces-around-statements.ShortStatementLines: 0
+  readability-identifier-naming.FunctionCase: CamelCase
+  readability-identifier-naming.MethodCase: CamelCase
+  readability-identifier-naming.LocalVariableCase: camelBack
+  readability-identifier-naming.ParameterCase: camelBack
+  readability-identifier-naming.PrivateMemberCase: CamelCase
+  readability-identifier-naming.PrivateMemberSuffix: '_'
+  readability-identifier-naming.PublicMemberCase: CamelCase
+  readability-identifier-naming.AbstractClassPrefix: I

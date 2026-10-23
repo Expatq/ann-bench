@@ -1,0 +1,28 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 100
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+InsertBraces: true
+BreakBeforeBraces: Attach
+WrapNamespaceBodyWithEmptyLines: Always
+SeparateDefinitionBlocks: Always
+BreakAfterReturnType: Automatic
+PenaltyReturnTypeOnItsOwnLine: 1000000
+SortIncludes: CaseInsensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Quotes are reserved for headers in the including file's directory.
+  - Regex: '^"'
+    Priority: 0
+  - Regex: '^<src/'
+    Priority: 1
+  # Add new dependency prefixes here; system and standard headers follow.
+  - Regex: '^<(absl/|faiss/|google/protobuf/|inc/Core/|library/|nlohmann/|scann/|util/|omp\.h>)'
+    Priority: 2
+  - Regex: '^<(sys|mach|mach-o)/'
+    Priority: 3
+  - Regex: '.*'
+    Priority: 4
