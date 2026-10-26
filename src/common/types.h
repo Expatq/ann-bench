@@ -14,18 +14,19 @@ enum class BackendKind : std::uint8_t {
     Faiss,
     Scann,
     Hnsw,
-    Spann
+    Spann,
+    FullScan,
 };
 
 enum class RunMode : std::uint8_t {
     Build,
-    Search
+    Search,
 };
 
 enum class VectorEncoding : std::uint8_t {
     Float32,
     SQ8,
-    PQ
+    PQ,
 };
 
 } // namespace ann
