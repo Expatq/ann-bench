@@ -1,6 +1,6 @@
 #pragma once
 
-#include <src/common/types.h>
+#include <common/types.h>
 
 #include <filesystem>
 #include <optional>

@@ -1,7 +1,7 @@
 #include "benchmark_cli.h"
 #include "cli_options.h"
 
-#include <src/serde/serde.h>
+#include <serde/serde.h>
 
 #include <string>
 

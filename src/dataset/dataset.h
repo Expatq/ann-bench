@@ -1,7 +1,7 @@
 #pragma once
 
-#include <src/common/config/config.h>
-#include <src/common/matrix.h>
+#include <common/config/config.h>
+#include <common/matrix.h>
 
 #include <cstdint>
 #include <filesystem>

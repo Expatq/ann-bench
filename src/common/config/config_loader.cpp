@@ -1,6 +1,6 @@
 #include "config_loader.h"
 
-#include <src/serde/serde.h>
+#include <serde/serde.h>
 
 #include <fstream>
 #include <stdexcept>

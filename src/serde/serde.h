@@ -1,8 +1,8 @@
 #pragma once
 
-#include <src/common/config/config.h>
-#include <src/common/metrics.h>
-#include <src/common/types.h>
+#include <common/config/config.h>
+#include <common/metrics.h>
+#include <common/types.h>
 
 #include <concepts>
 
