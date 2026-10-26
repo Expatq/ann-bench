@@ -1,6 +1,5 @@
 {
   "build": {
-    "metric": "l2",
     "seed": 42,
     "threads": 22
   },
