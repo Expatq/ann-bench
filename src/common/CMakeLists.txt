@@ -1,8 +1,8 @@
 add_library(ann_common STATIC
   backend.h
   backend_factory.h
+  matrix.h
   metrics.h
-  types.cpp
   types.h
 )
 add_library(ann::common ALIAS ann_common)

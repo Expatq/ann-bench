@@ -14,7 +14,8 @@ concept SerdeEnum =
 
 template <typename T>
 concept SerdeType = SerdeEnum<T> || std::same_as<T, BuildConfig> || std::same_as<T, SearchConfig> ||
-                    std::same_as<T, BenchmarkConfig> || std::same_as<T, RunConfig>;
+                    std::same_as<T, BenchmarkConfig> || std::same_as<T, RunConfig> ||
+                    std::same_as<T, DatasetConfig>;
 
 class Serde {
 public:

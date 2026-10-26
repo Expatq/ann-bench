@@ -17,6 +17,15 @@ RunConfig ConfigLoader::LoadRun(const std::filesystem::path& path) {
     }
 }
 
+DatasetConfig ConfigLoader::LoadDataset(const std::filesystem::path& path) {
+    const auto config = Read(path);
+    try {
+        return Serde::Deserialize<DatasetConfig>(config);
+    } catch (const std::exception& error) {
+        throw std::invalid_argument(path.string() + ": " + error.what());
+    }
+}
+
 Json ConfigLoader::LoadBackend(const std::filesystem::path& path) {
     return Read(path);
 }

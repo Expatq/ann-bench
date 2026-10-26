@@ -7,9 +7,15 @@
 
 namespace ann {
 
+struct DatasetConfig {
+    MetricKind Metric;
+    std::uint32_t Dim;
+    std::uint32_t BaseCount;
+    std::uint32_t QueryCount;
+};
+
 struct BuildConfig {
     std::uint64_t Seed;
-    MetricKind Metric;
     std::uint16_t Threads;
 };
 

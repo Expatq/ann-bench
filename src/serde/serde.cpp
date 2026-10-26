@@ -30,8 +30,7 @@ Json Serde::Serialize(const T& value) {
         }
         throw std::invalid_argument("unknown enum value");
     } else if constexpr (std::same_as<T, BuildConfig>) {
-        return {
-            {"metric", Serialize(value.Metric)}, {"seed", value.Seed}, {"threads", value.Threads}};
+        return {{"seed", value.Seed}, {"threads", value.Threads}};
     } else if constexpr (std::same_as<T, SearchConfig>) {
         return {{"neighbors_per_query", value.NeighborsPerQuery}, {"threads", value.Threads}};
     } else if constexpr (std::same_as<T, BenchmarkConfig>) {
@@ -43,6 +42,11 @@ Json Serde::Serialize(const T& value) {
         return {{"build", Serialize(value.Build)},
                 {"search", Serialize(value.Search)},
                 {"measurement", Serialize(value.Measurement)}};
+    } else if constexpr (std::same_as<T, DatasetConfig>) {
+        return {{"metric", Serialize(value.Metric)},
+                {"dim", value.Dim},
+                {"base_count", value.BaseCount},
+                {"query_count", value.QueryCount}};
     }
 }
 
@@ -66,7 +70,6 @@ T Serde::Deserialize(const Json& json) {
         }
         throw std::invalid_argument("unknown enum value: " + name + "; expected " + expected);
     } else if constexpr (std::same_as<T, BuildConfig>) {
-        value.Metric = Deserialize<MetricKind>(json.at("metric"));
         json.at("seed").get_to(value.Seed);
         json.at("threads").get_to(value.Threads);
     } else if constexpr (std::same_as<T, SearchConfig>) {
@@ -88,6 +91,11 @@ T Serde::Deserialize(const Json& json) {
             throw std::invalid_argument(
                 "threads, neighbors_per_query, query_threads and repetitions must be positive");
         }
+    } else if constexpr (std::same_as<T, DatasetConfig>) {
+        value.Metric = Deserialize<MetricKind>(json.at("metric"));
+        json.at("dim").get_to(value.Dim);
+        json.at("base_count").get_to(value.BaseCount);
+        json.at("query_count").get_to(value.QueryCount);
     }
     return value;
 }
@@ -112,5 +120,8 @@ template BenchmarkConfig Serde::Deserialize<BenchmarkConfig>(const Json&);
 
 template Json Serde::Serialize<RunConfig>(const RunConfig&);
 template RunConfig Serde::Deserialize<RunConfig>(const Json&);
+
+template Json Serde::Serialize<DatasetConfig>(const DatasetConfig&);
+template DatasetConfig Serde::Deserialize<DatasetConfig>(const Json&);
 
 } // namespace ann

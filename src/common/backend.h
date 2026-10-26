@@ -1,5 +1,6 @@
 #pragma once
 
+#include "matrix.h"
 #include "types.h"
 
 #include <src/common/config/config.h>
@@ -20,12 +21,15 @@ struct IndexInfo {
 // Native usage pipeline: Build/Load -> PrepareSearch -> Search (concurent by design) -> [Save]
 class IBackend {
 public:
+    using Matrix = Matrix<float>;
+
+public:
     virtual ~IBackend() = default;
 
-    // Input rows become stable IDs [0, base.Rows).
-    // Training may be empty if unused.
+    // Takes ownership of the original float32 base, row numbers become stable IDs.
+    // Includes sampling from the base, training, encoding and index construction.
     // After return, the backend owns all data needed to serve the index.
-    virtual void Build(MatrixView base, MatrixView training, const BuildConfig& config) = 0;
+    virtual void Build(Matrix base, MetricKind metric, const BuildConfig& config) = 0;
 
     // Alternative to Build. Load the complete index and any rerank vectors into RAM.
     virtual void Load(const std::filesystem::path& directory) = 0;

@@ -43,7 +43,6 @@ public:
         return *this;
     }
 
-    // Returns false after printing help. Parsing errors are reported as exceptions.
     bool Parse();
 
 private:
