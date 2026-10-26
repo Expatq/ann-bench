@@ -1,4 +1,7 @@
 /build*/
+/.venv/
 /compile_commands.json
 .DS_Store
 AGENTS.md
+/datasets/*/data/
+/datasets/*/dataset.json
