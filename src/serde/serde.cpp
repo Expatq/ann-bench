@@ -12,7 +12,8 @@ template <SerdeEnum T>
 constexpr auto Serde::EnumValues() {
     if constexpr (std::same_as<T, BackendKind>) {
         return std::array{std::pair{T::Faiss, "faiss"}, std::pair{T::Scann, "scann"},
-                          std::pair{T::Hnsw, "hnsw"}, std::pair{T::Spann, "spann"}};
+                          std::pair{T::Hnsw, "hnsw"}, std::pair{T::Spann, "spann"},
+                          std::pair{T::FullScan, "full_scan"}};
     } else if constexpr (std::same_as<T, RunMode>) {
         return std::array{std::pair{T::Build, "build"}, std::pair{T::Search, "search"}};
     } else if constexpr (std::same_as<T, MetricKind>) {
