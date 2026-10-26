@@ -1,6 +1,6 @@
 #pragma once
 
-#include <src/common/metrics.h>
+#include <common/metrics.h>
 
 #include <cstddef>
 #include <cstdint>

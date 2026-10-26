@@ -2,7 +2,7 @@
 
 #include "config.h"
 
-#include <src/common/types.h>
+#include <common/types.h>
 
 #include <filesystem>
 

@@ -3,7 +3,7 @@
 #include "matrix.h"
 #include "types.h"
 
-#include <src/common/config/config.h>
+#include <common/config/config.h>
 
 #include <cstddef>
 #include <filesystem>
