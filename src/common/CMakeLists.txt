@@ -2,6 +2,7 @@ add_library(ann_common STATIC
   backend.h
   backend_factory.h
   matrix.h
+  metrics.cpp
   metrics.h
   types.h
 )

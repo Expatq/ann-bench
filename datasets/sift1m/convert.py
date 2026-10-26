@@ -7,6 +7,7 @@ order, and remove data/raw/ after both matrices and metadata have been saved.
 
 import argparse
 import json
+import math
 import shutil
 import struct
 import tempfile
@@ -34,7 +35,10 @@ def Convert(sourcePath: Path, destinationPath: Path) -> tuple[int, int]:
                 record = source.read(recordBytes)
                 if len(record) != recordBytes or record[:4] != header:
                     raise ValueError(f"{sourcePath}: invalid fvecs record at row {row}; expected dim={dim}")
-                output.write(record[4:])
+                coordinates = record[4:]
+                if not all(math.isfinite(value) for (value,) in struct.iter_unpack("<f", coordinates)):
+                    raise ValueError(f"{sourcePath}: non-finite coordinate at row {row}")
+                output.write(coordinates)
     return rows, dim
 
 

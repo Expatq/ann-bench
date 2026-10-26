@@ -15,7 +15,7 @@ std::optional<RunArguments> BenchmarkCli::Parse(int argc, char** argv) {
 
     CliOptions cli(argc, argv);
     cli.AddUsage("Build an ANN index or measure search.");
-    cli.AddPositional("backend", "Available options: 'faiss', 'scann', 'hnsw', 'spann'")
+    cli.AddPositional("backend", "Available options: 'faiss', 'scann', 'hnsw', 'spann', 'full_scan'")
        .StoreResult(&backend);
     cli.AddPositional("mode", "Available options: 'build', 'search'").StoreResult(&mode);
     cli.AddOption("--config", "Common build, search and measurement configuration")

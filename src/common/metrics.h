@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <memory>
 #include <span>
 
 namespace ann {
@@ -20,6 +21,27 @@ public:
 
     // Strict comparison: true when left is better. L2: <; InnerProduct: >.
     virtual bool Compare(double left, double right) const = 0;
+
+public:
+    static std::unique_ptr<IMetric> Create(MetricKind kind);
+};
+
+class L2Metric : public IMetric {
+public:
+    MetricKind GetType() const override;
+
+    double Calc(std::span<const float> left, std::span<const float> right) const override;
+    
+    bool Compare(double left, double right) const override;
+};
+
+class InnerProductMetric : public IMetric {
+public:
+    MetricKind GetType() const override;
+    
+    double Calc(std::span<const float> left, std::span<const float> right) const override;
+    
+    bool Compare(double left, double right) const override;
 };
 
 } // namespace ann
