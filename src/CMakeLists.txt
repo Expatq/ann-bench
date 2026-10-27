@@ -1,4 +1,6 @@
 add_subdirectory(common)
+add_subdirectory(util)
+add_subdirectory(concurrency)
 add_subdirectory(serde)
 add_subdirectory(io)
 add_subdirectory(dataset)

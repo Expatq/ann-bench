@@ -5,7 +5,7 @@ IndentAccessModifiers: false
 DerivePointerAlignment: false
 PointerAlignment: Left
 ReferenceAlignment: Left
-ColumnLimit: 100
+ColumnLimit: 120
 AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: Never
@@ -23,7 +23,7 @@ IncludeCategories:
   # Quotes are reserved for headers in the including file's directory.
   - Regex: '^"'
     Priority: 0
-  - Regex: '^<(backends|common|dataset|io|serde)/'
+  - Regex: '^<(backends|common|concurrency|dataset|io|serde|util)/'
     Priority: 1
   # Add new dependency prefixes here; system and standard headers follow.
   - Regex: '^<(absl/|faiss/|google/protobuf/|inc/Core/|library/|nlohmann/|scann/|util/|omp\.h>)'
